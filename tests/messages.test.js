@@ -24,4 +24,14 @@ describe("Test the root path", () => {
     const response = await request(app).get("/");
     expect(response.body).toEqual({ message: "Test message" });
   });
+
+  test("Should delete message", async () => {
+    const response = await request(app).delete("/");
+    expect(response.statusCode).toBe(200);
+  });
+
+  test("Should have no note stored", async () => {
+    const response = await request(app).get("/");
+    expect(response.body).toEqual({ message: "" });
+  });
 });
