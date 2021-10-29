@@ -11,6 +11,16 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/custom-note", (req, res) => {
+  try {
+    const note = fs.readFileSync("./db.json");
+    res.json(JSON.parse(note));
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send("Failed to read custom message!");
+  }
+});
+
 app.post("/", (req, res) => {
   const message = req.body;
   try {
