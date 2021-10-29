@@ -32,6 +32,16 @@ app.post("/", (req, res) => {
   }
 });
 
+app.delete("/", (req, res) => {
+  try {
+    fs.writeFileSync("./db.json", "");
+    return res.send("Successfully deleted message!");
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send("Failed to delete message!");
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
