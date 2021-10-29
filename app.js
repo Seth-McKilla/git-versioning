@@ -27,7 +27,7 @@ app.post("/", (req, res) => {
 
 app.delete("/", (req, res) => {
   try {
-    fs.writeFileSync("./db.json", "");
+    fs.writeFileSync("./db.json", JSON.stringify({ message: "" }));
     return res.send("Successfully deleted message!");
   } catch (error) {
     console.log(error);
