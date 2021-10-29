@@ -5,12 +5,6 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  return res.json({
-    message: "Hello there! POST to this route to add a custom message!",
-  });
-});
-
-app.get("/custom-note", (req, res) => {
   try {
     const note = fs.readFileSync("./db.json");
     res.json(JSON.parse(note));
