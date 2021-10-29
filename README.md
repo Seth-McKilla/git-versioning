@@ -18,4 +18,4 @@ git checkout -b <branch-name>
 
 ### 7. Delete remote branch
 
-### 8. Delete local branch and pull changes from remote repo
+### 8. Checkout to main local branch, delete other branch, and pull changes from remote repo
