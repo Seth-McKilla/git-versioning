@@ -15,10 +15,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  const message = req.body;
   try {
-    fs.writeFileSync("./db.json", JSON.stringify(message));
-    return res.status(201).send(message);
+    fs.writeFileSync("./db.json", JSON.stringify(req.body));
+    return res.status(201).send(req.body);
   } catch (error) {
     console.log(error);
     return res.status(500).send("Message failed to be added!");
